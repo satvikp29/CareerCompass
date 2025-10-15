@@ -1,39 +1,55 @@
-# 🎯 CareerCompass – Job Application Tracker
+# CareerCompass – Job Application Tracker
 
-**CareerCompass** is a full-stack web app built with Django that helps users track their job applications, monitor progress, and visualize insights with an interactive dashboard.
-
----
-
-## 🚀 Features
-
-- 📝 **Add / Edit / Delete Applications**
-- 📊 **Dashboard** showing totals and charts by status
-- 🔒 **User Authentication**
-- 🎨 **Clean Tailwind-style UI**
-- ☁️ **Ready for Render Deployment**
+**Live Demo:**  
+[Visit the live app → CareerCompass](https://careercompass-yi6c.onrender.com/apps)
 
 ---
 
-## 🛠️ Tech Stack
+## Project Overview
 
-| Layer | Framework / Tool |
-|-------|------------------|
-| Backend | Django 5 + Gunicorn |
-| Frontend | HTML + TailwindCSS |
-| Database | SQLite (local) / PostgreSQL (Render) |
-| Hosting | Render Free Web Service |
-| Analytics | Chart.js |
+CareerCompass is a full-stack web application built with Django and TailwindCSS, designed to help users track their job applications through all stages — from applying to interviewing, offers, or rejection — and visualize trends via a dashboard.
 
 ---
 
-## ⚙️ Local Setup
+## Features
 
-```bash
-git clone https://github.com/<your-username>/careercompass.git
-cd careercompass
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
+| Feature | Description |
+|----------|-------------|
+| Add / Edit / Delete Applications | Manage job applications with company, role, status, notes, etc. |
+| Dashboard with Charts | Visualize application distribution by status using Chart.js |
+| Demo Login | Testable access via demo user (no setup required) |
+| User Authentication | Secure login using Django’s built-in system |
+| Responsive UI | Clean, mobile-friendly design with TailwindCSS |
+| Deploy-Ready | Hosted on Render with static file handling via WhiteNoise |
 
+---
+
+## Demo Login
+
+Use these credentials to test the app:
+
+**Username:** demo  
+**Password:** password  
+
+You’ll gain access to all CRUD and dashboard functionality.
+
+---
+
+## Tech Stack
+
+- **Backend:** Django 5  
+- **Frontend / Styling:** HTML + TailwindCSS  
+- **Charts / Analytics:** Chart.js  
+- **Database (local):** SQLite  
+- **Database (production):** SQLite (configurable to Postgres)  
+- **Web Server:** Gunicorn + WhiteNoise  
+- **Hosting / Deployment:** Render  
+
+---
+
+## Setup / Local Development
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/your-username/CareerCompass.git
+   cd CareerCompass

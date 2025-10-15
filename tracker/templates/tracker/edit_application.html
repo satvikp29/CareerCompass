@@ -1,0 +1,47 @@
+{% extends "tracker/base.html" %} {% block content %}
+<h1 class="text-2xl font-semibold mb-4">Edit Application</h1>
+
+<style>
+  input,
+  select,
+  textarea {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px;
+    width: 100%;
+    background-color: white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
+  }
+  label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+    color: #374151;
+  }
+</style>
+
+<form method="post" class="bg-white p-6 border rounded-lg space-y-4 shadow">
+  {% csrf_token %} {% for field in form %}
+  <div>
+    <label>{{ field.label }}</label>
+    {{ field }} {% for error in field.errors %}
+    <p class="text-red-600 text-sm">{{ error }}</p>
+    {% endfor %}
+  </div>
+  {% endfor %}
+  <button
+    type="submit"
+    class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+  >
+    Update
+  </button>
+  <a href="/apps" class="ml-2 text-blue-600">Cancel</a>
+</form>
+{% endblock %}

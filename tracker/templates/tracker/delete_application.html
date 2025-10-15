@@ -1,0 +1,14 @@
+{% extends "tracker/base.html" %} {% block content %}
+<h1 class="text-2xl font-semibold mb-4">Delete Application</h1>
+<p class="mb-4">
+  Are you sure you want to delete <strong>{{ app.company }}</strong> –
+  <strong>{{ app.role }}</strong>?
+</p>
+<form method="post" class="space-x-2">
+  {% csrf_token %}
+  <button type="submit" class="bg-red-600 text-white px-4 py-2 rounded">
+    Yes, delete
+  </button>
+  <a href="/apps" class="text-blue-600">Cancel</a>
+</form>
+{% endblock %}

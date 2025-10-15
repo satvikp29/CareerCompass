@@ -1,0 +1,44 @@
+{% extends "tracker/base.html" %} {% block content %}
+<h1 class="text-2xl font-semibold mb-4">Dashboard</h1>
+
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+  <div class="bg-white p-4 rounded shadow text-center">
+    <h2 class="text-gray-500 text-sm">Total</h2>
+    <p class="text-2xl font-semibold">{{ total }}</p>
+  </div>
+  <div class="bg-white p-4 rounded shadow text-center">
+    <h2 class="text-gray-500 text-sm">Interviews</h2>
+    <p class="text-2xl font-semibold">{{ interviews }}</p>
+  </div>
+  <div class="bg-white p-4 rounded shadow text-center">
+    <h2 class="text-gray-500 text-sm">Offers</h2>
+    <p class="text-2xl font-semibold text-green-600">{{ offers }}</p>
+  </div>
+  <div class="bg-white p-4 rounded shadow text-center">
+    <h2 class="text-gray-500 text-sm">Rejected</h2>
+    <p class="text-2xl font-semibold text-red-600">{{ rejected }}</p>
+  </div>
+</div>
+
+<div class="bg-white p-6 rounded shadow">
+  <h2 class="text-lg font-semibold mb-4">Applications by Status</h2>
+  <canvas id="statusChart" height="120"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById("statusChart");
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: {{ status_labels|safe }},
+      datasets: [{
+        label: "Applications",
+        data: {{ status_counts|safe }},
+        backgroundColor: ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#6b7280"]
+      }]
+    },
+    options: {responsive: true, scales: {y: {beginAtZero: true}}}
+  });
+</script>
+{% endblock %}
